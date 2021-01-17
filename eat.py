@@ -1,15 +1,17 @@
 import random
 
+from formatting import formatMessage
+
 goEatMessages = [
   "As your Mother, I would very much like you to ingest things that will keep you alive",
-  "***BRENN GO EAT A FOOD***",
+  "BRENN GO EAT A FOOD",
+  "BRENN GO EAT SOMETHING DONT MAKE ME COME OVER THERE",
   "Brenn, please feed yourself",
   "Brenn, please put foods inside of your eat-hole",
   "GO EAT",
-  "IT IS TIME FOR THE EATING OF HEALTHY FOODS",
-  "***BRENN GO EAT SOMETHING DONT MAKE ME COME OVER THERE***"
+  "It is time for the eating of healthy foods"
 ]
 
 def goEat():
-  quote = random.choice(goEatMessages)
+  quote = formatMessage(random.choice(goEatMessages))
   return quote

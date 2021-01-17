@@ -1,17 +1,19 @@
 import random
 
+from formatting import formatMessage
+
 goMessages = [
+  "BRENN GO",
+  "BRENN GO DO THINGS",
   "Brennjamin K. Mooney will you please go now",
-  "Brenn!!! pls move",
   "Brenn!!!",
-  "***BRENN GO DO THINGS***",
-  "Hi welcome to {server} we'll be your substitute executive function for the evening",
+  "Brenn!!! pls move",
+  "Don't make me come over there and kick ur ass",
+  "Don't make me come over there",
   "GO BRENN GO",
-  "***BRENN GO***",
-  "don't make me come over there and kick ur ass",
-  "***DON'T MAKE ME COME OVER THERE***"
+  "Hi welcome to Homo Hotel, we'll be your substitute executive function for the evening"
 ]
 
 def goDoThings():
-  quote = random.choice(goMessages)
+  quote = formatMessage(random.choice(goMessages))
   return quote
