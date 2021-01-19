@@ -4,14 +4,14 @@ from formatting import formatMessage
 
 goEatMessages = [
   "As your Mother, I would very much like you to ingest things that will keep you alive",
-  "BRENN GO EAT A FOOD",
-  "BRENN GO EAT SOMETHING DONT MAKE ME COME OVER THERE",
-  "Brenn, please feed yourself",
-  "Brenn, please put foods inside of your eat-hole",
+  "{NAME} GO EAT A FOOD",
+  "{NAME} GO EAT SOMETHING DONT MAKE ME COME OVER THERE",
+  "{Name}, please feed yourself",
+  "{Name}, please put foods inside of your eat-hole",
   "GO EAT",
   "It is time for the eating of healthy foods"
 ]
 
-def goEat():
-  quote = formatMessage(random.choice(goEatMessages))
+def goEat(name):
+  quote = formatMessage(random.choice(goEatMessages), name)
   return quote

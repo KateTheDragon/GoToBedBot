@@ -3,17 +3,17 @@ import random
 from formatting import formatMessage
 
 goMessages = [
-  "BRENN GO",
-  "BRENN GO DO THINGS",
-  "Brennjamin K. Mooney will you please go now",
-  "Brenn!!!",
-  "Brenn!!! pls move",
+  "{NAME} GO",
+  "{NAME} GO DO THINGS",
+  "{Name} K. Mooney will you please go now",
+  "{Name}!!!",
+  "{Name}!!! pls move",
   "Don't make me come over there and kick ur ass",
   "Don't make me come over there",
-  "GO BRENN GO",
+  "GO {NAME} GO",
   "Hi welcome to Homo Hotel, we'll be your substitute executive function for the evening"
 ]
 
-def goDoThings():
-  quote = formatMessage(random.choice(goMessages))
+def goDoThings(name):
+  quote = formatMessage(random.choice(goMessages), name)
   return quote

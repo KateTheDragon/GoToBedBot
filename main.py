@@ -17,17 +17,27 @@ async def on_message(message):
   if message.author == client.user:
      return
 
+  if not message.content.startswith('!'):
+    return
+
   if message.content.startswith('!bed'):
-    quote = goToBed()
+    quote = goToBed(getName(message, '!bed'))
     await message.channel.send(quote)
   
   if message.content.startswith('!eat'):
-    quote = goEat()
+    quote = goEat(getName(message, '!eat'))
     await message.channel.send(quote)
   
   if message.content.startswith('!go'):
-    quote = goDoThings()
+    quote = goDoThings(getName(message, '!go'))
     await message.channel.send(quote)
+
+def getName(message, start):
+  if len(message.mentions) > 0:
+    name = message.mentions[0].display_name
+  else:
+    name = message.author.display_name
+  return name
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
