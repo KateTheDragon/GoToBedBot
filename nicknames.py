@@ -30,12 +30,11 @@ def clearNicknames(user):
     list = db[user].copy()
     print(user+", "+str(list)+" removed")
   db[user] = []
-  return str(list)
+  return list
 
-
-def showNicknames(user):
+def getNicknames(user):
   list = []
   if user in db.keys():
     list = db[user]
     print(user+", "+str(list)+" shown")
-  return str(list)
+  return list

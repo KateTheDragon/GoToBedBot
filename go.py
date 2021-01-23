@@ -12,6 +12,7 @@ goMessages = [
   "Don't make me come over there",
   "GO {NAME} GO",
   "Hi welcome to Homo Hotel, we'll be your substitute executive function for the evening"
+  "Go do the thing, {Name}"
 ]
 
 def goDoThings(name):

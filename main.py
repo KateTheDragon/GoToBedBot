@@ -1,5 +1,6 @@
 import discord
 import os
+import random
 
 from keepAlive import keep_alive
 from bed import goToBed
@@ -25,15 +26,15 @@ async def on_message(message):
     return
 
   if msg.startswith('!bed'):
-    quote = goToBed(getName(message, '!bed'))
+    quote = goToBed(getUser(message))
     await message.channel.send(quote)
   
   if msg.startswith('!eat'):
-    quote = goEat(getName(message, '!eat'))
+    quote = goEat(getUser(message))
     await message.channel.send(quote)
   
   if msg.startswith('!go'):
-    quote = goDoThings(getName(message, '!go'))
+    quote = goDoThings(getUser(message))
     await message.channel.send(quote)
 
   if msg.startswith('!nickname'):
@@ -48,18 +49,18 @@ async def on_message(message):
   
   if msg.startswith('!clearNicknames'):
     list = nicknames.clearNicknames(author)
-    await message.channel.send("Cleared the following nicknames from "+message.author.display_name+": "+list)
+    await message.channel.send("Cleared the following nicknames from "+message.author.display_name+": "+str(list))
   
   if msg.startswith('!showNicknames'):
-    list = nicknames.showNicknames(author)
-    await message.channel.send(message.author.display_name+" has the following nicknames: "+list)
+    list = nicknames.getNicknames(author)
+    await message.channel.send(message.author.display_name+" has the following nicknames: "+str(list))
 
-def getName(message, start):
+def getUser(message):
   if len(message.mentions) > 0:
-    name = message.mentions[0].display_name
+    user = message.mentions[0]
   else:
-    name = message.author.display_name
-  return name
+    user = message.author
+  return user
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
