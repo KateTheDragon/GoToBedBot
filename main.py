@@ -5,6 +5,7 @@ from keepAlive import keep_alive
 from bed import goToBed
 from eat import goEat
 from go import goDoThings
+import nicknames
 
 client = discord.Client()
 
@@ -17,20 +18,41 @@ async def on_message(message):
   if message.author == client.user:
      return
 
-  if not message.content.startswith('!'):
+  msg = message.content
+  author = str(message.author.id)
+
+  if not msg.startswith('!'):
     return
 
-  if message.content.startswith('!bed'):
+  if msg.startswith('!bed'):
     quote = goToBed(getName(message, '!bed'))
     await message.channel.send(quote)
   
-  if message.content.startswith('!eat'):
+  if msg.startswith('!eat'):
     quote = goEat(getName(message, '!eat'))
     await message.channel.send(quote)
   
-  if message.content.startswith('!go'):
+  if msg.startswith('!go'):
     quote = goDoThings(getName(message, '!go'))
     await message.channel.send(quote)
+
+  if msg.startswith('!nickname'):
+    nickname = msg.split('!nickname ', 1)[1]
+    nicknames.addNickname(author, nickname)
+    await message.channel.send("Added nickname "+nickname+" to "+message.author.display_name)
+  
+  if msg.startswith('!removeNickname'):
+    nickname = msg.split('!removeNickname ', 1)[1]
+    nicknames.removeNickname(author, nickname)
+    await message.channel.send("Removed nickname "+nickname+" from "+message.author.display_name)
+  
+  if msg.startswith('!clearNicknames'):
+    list = nicknames.clearNicknames(author)
+    await message.channel.send("Cleared the following nicknames from "+message.author.display_name+": "+list)
+  
+  if msg.startswith('!showNicknames'):
+    list = nicknames.showNicknames(author)
+    await message.channel.send(message.author.display_name+" has the following nicknames: "+list)
 
 def getName(message, start):
   if len(message.mentions) > 0:
