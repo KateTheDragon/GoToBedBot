@@ -3,9 +3,11 @@ import random
 from formatting import formatMessage
 
 goToBedMessages = [
-  "{NAME} BRAIN. LET MY {NAME} SLEEP. He needs to sleep!! He deserves comfort and rest. He has earned it, and you need to let him have it",
+  "{NAME} BRAIN. LET MY {NAME} SLEEP. {They} {need/needs} to sleep!! {They} {deserve/deserves} comfort and rest. {They} {have/has} earned it, and you need to let {them} have it",
   "{NAME} GO SLEEP",
   "{Name}! Go to bed!",
+  "{Name} it is time for the sleeping"
+  "{Name}, please sleep",
   "GO BED",
   "Go bed!",
   "GO IN THE BED",
@@ -19,8 +21,7 @@ goToBedMessages = [
   "Go to the bed, {Name}",
   "Goodnight {Name}",
   "https://cdn.discordapp.com/attachments/687387583768166486/793307047264518154/t9wj0wukeby01.jpg",
-  "It is the sleepy time, it is the time for the sleep https://www.youtube.com/watch?v=OKdzW6gUn10",
-  "{Name}, please sleep"
+  "It is the sleepy time, it is the time for the sleep https://www.youtube.com/watch?v=OKdzW6gUn10"
 ]
 
 def goToBed(name):
