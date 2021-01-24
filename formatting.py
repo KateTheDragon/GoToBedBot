@@ -15,6 +15,8 @@ def formatMessage(string, user):
   while ("{NAME}" in string):
     string = string.replace("{NAME}", chooseNickname(user).upper(), 1)
 
+  string = string.replace("{Server}", user.guild.name)
+
   pronoun = random.choice(getPronouns(user))
 
   string = string.replace("{they}", pronoun.Subject.lower())
