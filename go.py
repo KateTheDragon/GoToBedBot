@@ -10,6 +10,7 @@ goMessages = [
   "{Name}!!! pls move",
   "Don't make me come over there and kick ur ass",
   "Don't make me come over there",
+  "Don't make me come over there, {Name}",
   "GO {NAME} GO",
   "Hi welcome to {Server}, we'll be your substitute executive function for the evening",
   "Go do the thing, {Name}"
